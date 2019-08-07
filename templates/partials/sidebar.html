@@ -1,0 +1,51 @@
+<!-- Sidebar -->
+{% load static %}
+    <div class="border-right bg-custom-1" id="sidebar-wrapper">
+        <div class="sidebar-heading"><img width="240px" class="header-image" src="{% static 'img/logo-2.jpg' %}" alt="logo"></div>
+        
+         {% if user.userprofile.team %}
+            <form action="{% url 'search' %}" method="GET">
+            <div class="form-group search-place">
+              
+                <input type="search" class="form-control searchbox" placeholder="Search projects" name="query">
+               
+              </div>
+            </form>
+          {% endif %}
+
+        {% if user.userprofile.team %}
+          <div class="list-group list-group-flush">
+            <a href="{% url 'dashboard' %}" 
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-table"></i>   Dashboard</a>
+            <a href="{% url 'notifications' %}"
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-bell"></i>   Notifications</a>
+            
+            {% if user.userprofile.is_line_manager %}        
+            <a href="{% url 'create_project' %}"
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-plus"></i>   Create Project</a>
+            <a href="{% url 'projects' %}" 
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-eye"></i> Existing Projects</a>
+            <a href="{% url 'manage_teams' %}"
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-gear"></i>   Manage teams</a>
+            {% endif %}
+            
+            
+            {% if not user.userprofile.is_line_manager %}
+            <a href="{% url 'team_projects' user.userprofile.team.id %}"
+              class="list-group-item list-group-item-action bg-custom-1"><i class="fa fa-bars"></i>   {% if user.userprofile.is_program_manager %}Manage{% endif %} Team Projects</a> 
+            {% endif %}
+              
+            <a href="{% url 'leaderboard' %}"
+             {% if 'leaderboard' in request.path %}
+              class="list-group-item list-group-item-action bg-custom-1"
+            {% else %}
+              class="list-group-item list-group-item-action bg-custom-1"
+            {% endif %}><i class="fa fa-clipboard"></i>   View Leaderboard</a>
+          </div>
+        {% endif %}
+          
+        
+      <div class="sidebar-logout">
+        <a href="{% url 'logout' %}" class="style-button-1">Log Out</a>
+      </div>
+    </div>

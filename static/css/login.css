@@ -1,0 +1,74 @@
+body{
+  font-family: "Raleway";
+  background-image: url("../img/image-bg.jpg");
+  background-position: center;
+  background-size: cover; 
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.style-button-1 {
+  border: 2px solid white;
+  background: none;
+  border-radius: 70px;
+  color: white;
+  font-weight: bold;
+  width: 160px;
+  height: 40px;
+  margin-top: 20px;
+
+}
+.content {
+  margin:17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.style-button-1:hover {
+  border: 2px solid #164782;
+  background: #164782;
+}
+
+
+input[type="text"], input[type="password"]{
+  padding: 12px 20px;
+  border: none;
+  border-bottom: 1.5px solid white;
+  background: none;
+  color:white;
+  width: 340px;
+  height: 40px;
+}
+
+input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+
+input[type="submit"] {
+  
+}
+
+
+.focus-btn {
+  border: 2px solid #164782;
+  background: #164782;
+}
+
+.spaced-input {
+  margin-top:20px;
+
+}
+
+i {
+  color: white;
+}
+
+.register-form {
+  display: none;
+}

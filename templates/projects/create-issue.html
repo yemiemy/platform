@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}| Create_issue{% endblock title %}
+{% block content %}
+    <div class="main-content">
+      <div class="container container-fluid"> 
+        <h5 class="mt-4 page-title">{{project}}</h5>
+        <div class="card main-content">
+          <div class="card-body">
+          <form action="{% url 'create_issue' project.id %}" method="POST">
+              {% csrf_token %}
+              <h6 class="font-weight-bold">Issue title</h6>
+              <input name="title" type="text" class="form-control field" >
+              <br>
+              <h6 class="font-weight-bold">Issue description</h6>
+              <textarea name="message" placeholder="Describe the issues you are having" id="" cols="30" rows="8" class="form-control field"></textarea>
+              <br>
+                <input type="submit" class="btn btn-style-2" value="Submit now">
+            </form>
+          </div>
+          </div>
+      </div>
+      </div>
+{% endblock content %}
+    

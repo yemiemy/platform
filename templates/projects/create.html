@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}| Create Project{% endblock title %}
+{% block content %}
+  <div class="container container-fluid">
+        <h5 class="mt-4 page-title">CREATE PROJECT</h5>
+        <div class="card main-content">
+        <div class="card-body">
+        <form action="{% url 'create_project'%}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <h6 class="font-weight-bold">Project title</h6>
+            <input type="text" required class="form-control field" name="title">
+            <br>
+            <h6 class="font-weight-bold">Project Description</h6>
+            <textarea required name="description" id="" cols="30" rows="8" class="form-control field"></textarea>
+            <br>
+            <h6 class="font-weight-bold">Project Point</h6>
+            <input required type="number" class="form-control field" name="point">
+            <br>
+            <h6 class="font-weight-bold">Add attachment</h6>
+            <input type="file" name="attachment">
+            <br><br>
+            <h6 class="font-weight-bold">Duration</h6>
+            <div class="duration-section">
+                  <span>Start date and time: <input required type="datetime-local" name="startdate" class="form-control"></span>
+                  <span>End date and time: <input required type="datetime-local" name="deadline" class="form-control"></span>
+            </div>
+            <div class="submit-section my-5">
+                <input type="submit" class=" btn btn-style-2" value="CREATE">
+            </div>
+          </form>
+        </div>
+        </div>
+        </div>
+{% endblock content %}

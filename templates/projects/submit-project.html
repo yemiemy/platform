@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}| Submit Project{% endblock title %}
+{% block content %}
+    <div class="main-content">
+      <div class="container container-fluid"> 
+        <h5 class="mt-4 page-title">Submit Project: {{project}} </h5>
+        <div class="card main-content">
+          <div class="card-body">
+          <form action="{% url 'submit_project' project.id %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+              <h6 class="font-weight-bold">Solution details</h6>
+              <textarea name="details" placeholder="Briefly state details on solution and add external links if any" id="" cols="30" rows="8" class="form-control field"></textarea>
+              <br>
+              <h6 class="font-weight-bold">Add attachment (if any)</h6>
+              <input type="file" name="attachment">
+              <br>
+              <br>
+              <div class="submit-section">
+                  <input type="submit" class="btn-style-2" value="Submit now">
+              </div>
+            </form>
+          </div>
+          </div>
+      </div>
+      </div>
+{% endblock content %}
+    

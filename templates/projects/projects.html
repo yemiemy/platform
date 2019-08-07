@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}| Projects{% endblock title %}
+{% block content %}
+    <div class="main-content">
+      <div class="container container-fluid"> 
+        <h5 class="mt-4 page-title"> Existing Projects</h5>
+          <!-- Classic tabs -->
+        <div class="classic-tabs">
+
+        <ul class="nav tabs-cyan card" id="myClassicTab" role="tablist">
+            <li class="nav-item">
+            <a class="nav-link  waves-light active-ta show tabs-class" id="profile-tab-classic" data-toggle="tab" href="#profile-classic"
+                role="tab" aria-controls="profile-classic" aria-selected="true">All &nbsp;<span class="badge badge-primary badge-pill pull-right">{{all_projects_counter}}</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link waves-light tabs-class" id="follow-tab-classic" data-toggle="tab" href="#follow-classic" role="tab"
+                aria-controls="follow-classic" aria-selected="false">Active &nbsp;<span class="badge badge-primary badge-pill pull-right">{{active_projects_counter}}</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link waves-light tabs-class" id="contact-tab-classic" data-toggle="tab" href="#contact-classic" role="tab"
+                aria-controls="contact-classic" aria-selected="false">Completed &nbsp;<span class="badge badge-primary badge-pill pull-right">{{accepted_projects_counter}}</span></a>
+            </li>
+            <li class="nav-item">
+            <a href="{% url 'create_project' %}" class="nav-link waves-light">Create Project</a>
+            </li>
+        </ul>
+        <br>
+        <div class="tab-content rounded-bottom container" id="myClassicTabContent">
+            <div class="tab-pane fade active show" id="profile-classic" role="tabpanel" aria-labelledby="profile-tab-classic">
+            <div id="all-projects" class="row projects-container">
+                {% for project in all_projects  %}     
+                <div class="card col-md-4 p-card" >   
+                    <div class="card-body task-body">
+                    <h5 class="card-header-title font-weight-bold">{{project}}</h5>
+                    <hr>
+                    {{project.description|truncatewords:20}}
+                    <div class="task-btns">
+                        <a href="{% url 'update_project' project.id %}" class="btn-style-2">Edit Project</a>
+                        
+                        {% if not project.is_assigned %}
+                            <a href="{% url 'assign_project' project.id %}" class="btn-style-2">Assign Project</a>
+                        {% endif %}
+                            
+                        <a href="{% url 'delete_project' project.id %}" class="btn-style-2">Delete Project</a>
+                    </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+            <div class="tab-pane fade" id="follow-classic" role="tabpanel" aria-labelledby="follow-tab-classic">
+                <div id="active-projects" class="row projects-container">
+                    
+                    {% for project in active_projects  %}
+                        
+                    <div class="card col-md-4 p-card" >
+                    <div class="card-body task-body">
+                        <h5 class="card-header-title font-weight-bold">{{project}}</h5>
+                        <hr>
+                        {{project.description|truncatewords:20}}
+                        <div class="task-btns">
+                        <a href="{% url 'update_project' project.id %}" class="btn-style-2">Edit Project</a>
+                        {% if not project.is_assigned %}
+                            <a href="{% url 'assign_project' project.id %}" class="btn-style-2">Assign Project</a>
+                        {% endif %}
+                        <a href="{% url 'delete_project' project.id %}" class="btn-style-2">Delete Project</a>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                        
+            
+                </div>
+                </div>
+            <div class="tab-pane fade" id="contact-classic" role="tabpanel" aria-labelledby="contact-tab-classic">
+                <div id="completed-projects" class="row projects-container">
+                    
+                    {% for project in accepted_projects  %}
+                        
+                    <div class="card col-md-4 p-card" >
+                    <div class="card-body task-body">
+                        <h5 class="card-header-title font-weight-bold">{{project}}</h5>
+                        <hr>
+                        {{project.description|truncatewords:20}}
+                        <div class="task-btns">
+                        <a href="{% url 'update_project' project.id %}" class="btn-style-2">Edit Project</a>
+                        <a href="{% url 'delete_project' project.id %}" class="btn-style-2">Delete Project</a>
+                        </div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                        
+            
+                </div>
+            </div>
+        </div>
+
+        </div>
+        </div>
+      </div>
+
+      <script>
+          
+      </script>
+{% endblock content %}
+

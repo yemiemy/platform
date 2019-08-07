@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}| Assign Project{% endblock title %}
+{% block content %}
+  <div class="container container-fluid">
+        <h2 class="mt-4 page-title">ASSIGN PROJECT</h2>
+        <div class="create-team">
+            <a href="{% url 'create_team' %}" class="btn btn-style-1">Create Team</a>
+          </div> 
+        (Project - {{project.title}} )  
+        <br>
+        <table class="table" style="height: 400px !important;">
+            <thead class="thead-white">
+              <tr>
+                <th scope="col">Team Name</th>
+                <th scope="col">Program Manager</th>
+                <th scope="col">Points</th>
+                <th scope="col">Assign</th>
+              </tr>
+            </thead>
+            <tbody style="height: 600px !important;">
+              
+              {% if teams %}
+              {% for team in teams %}
+                <tr>
+                <td>{{team.name}}</td>
+                <td>{{team.program_manager}}</td>
+                <td>{{team.totalPoints}}</td>
+                <td>
+                  <form action="{% url 'assign_project' project.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="team" value="{{team.id}}">
+                    <button type="submit" class="btn btn-style-1">Assign</button>
+                  </form>
+                </td>
+              </tr>
+              {% endfor %}
+
+              {% else %}
+                <div class="container">
+                  <p>THERE ARE NO TEAMS YET</p>
+                </div>
+                
+              {% endif %}
+                
+            </tbody>
+          </table>
+          
+        </div>
+{% endblock content %}

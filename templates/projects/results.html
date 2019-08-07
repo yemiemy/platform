@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}| Search Results{% endblock title %}
+{% block content %}
+<div class="main-content">
+      <div class="container container-fluid"> 
+        <h5 class="mt-4 page-title"> Search Results for {{query}} </h5>
+        <div class="row">
+
+          {% if projects %}
+            {% for project in projects %}
+            
+            <div class="card col-md-4 p-card" style="min-height: 250px;" >
+                      <div class="card-body">
+                          <h5 class="card-header-title font-weight-bold">{{project}}</h5>
+                          <hr>
+                          {{project.description|truncatewords:20}}
+                          <div class="task-btns">
+                          <a href="{% url 'update_project' project.id %}" class="btn-style-2">Edit Project</a>
+                          
+                          {% if not project.is_assigned %}
+                            <a href="{% url 'assign_project' project.id %}" class="btn-style-2">Assign Project</a>
+                          {% endif %}
+                          <a href="{% url 'delete_project' project.id %}" class="btn-style-2">Delete Project</a>
+                          </div>
+                      </div>
+                      </div>
+  
+            {% endfor %}
+            {% else %}
+            <div class="col-md-4 col-lg-4 mb-4 text-center">
+              <div class="product-entry border">
+                  <p>Your search for "{{query}}" did not match any results.</p>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+        </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+ {% endblock %}
+
+
+ {# {% if post %}
+	{% for post in post%}
+ <div class="sidebar-box ftco-animate">
+              <ul class="categories">
+                
+                <li><a href="{% url 'single_page' post.id %}">{{post.title}} </a></li>
+                {% endfor %}
+	{% else %}
+	<li>Sorry! your search for  "{{query}}"  didn't match any results</li>
+	{% endif %}
+              </ul> #}

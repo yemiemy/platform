@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}| Issues{% endblock title %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <h1>ALL ISSUES</h1>
+            
+            {% if issues %}
+            
+            {% for issue in issues  %}
+               <p>{{issue.title}}</p>
+               <a href="{% url 'issue' issue.id %}">VIEW</a>
+            {% endfor %}
+
+            {% else %}
+                THERE ARE NO ISSUES AT THE MOMENT
+            {% endif %}
+                
+        </div>
+    </div>
+{% endblock content %}
+    

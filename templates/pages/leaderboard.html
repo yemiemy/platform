@@ -1,0 +1,36 @@
+{% extends 'base.html' %}      
+
+{% block title %}| Leaderboard{% endblock title %}
+{% block content %}
+  <div class="container container-fluid">
+        <h5 class="mt-4 page-title">TEAMS' LEADERBOARD</h5>
+            <div class="card">
+              <div class="card-body">
+              <table class="table" style="height: 400px !important;">
+                <thead>
+                  <tr>
+                    <th scope="col"class="font-weight-bold">#</th>
+                    <th scope="col" class="font-weight-bold">Team name</th>
+                    <th scope="col"  class="font-weight-bold">Team lead</th>
+                    <th scope="col"  class="font-weight-bold">Points</th>
+                  </tr>
+                </thead>
+                <tbody style="height: 350px !important;">
+                  
+                    
+                  {% for key, val in dictionary.items %}    
+                  <tr class="">
+                    <td scope="row">{{key}}</td>
+                    <td>{{val.name}}</td>
+                    <td>{{val.program_manager.first_name}} {{val.program_manager.last_name}}</td>
+                    <td>{{val.totalPoints}}</td>
+                  </tr>                             
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+
+        </div>
+{% endblock content %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}| Project{% endblock title %}
+{% block content %}
+    <div class="main-content mt-3">
+          <div class="container container-fluid"> 
+            <div class="card">
+              <h4 class="card-header">{{project}}</h4>
+              <div class="card-body">
+                <h6 class="font-weight-bold">PROJECT DESCRIPTION:</h6>
+                  <p class="">
+                      {{project.description}}                                           
+                  </p>
+                  
+                  <br>
+
+                  <h6 class="font-weight-bold">ATTACHMENT: </h6>
+                  
+                  {% if project.attachment %}
+                      <a href="{{project.attachment.url}}">{{project.attachment}}</a>
+                    {% else %}
+                    <p>NO ATTACHMENT AVAILABLE</p>
+                  {% endif %}
+                      
+                  <br>
+                  <br>
+                  <h6 class="font-weight-bold">PROJECT DURATION: </h6>
+                  <small class="font-weight-bold">START DATE: {{project.startdate}}</small> <br>
+                  <small class="font-weight-bold">END DATE: {{project.deadline}}</small>
+
+                  
+                  {% if user.userprofile.is_program_manager %}
+                  
+                  {% if not project.is_accepted %}
+                  <br>
+                  <br>
+                  <p>
+                    <a href="{% url 'submit_project' project.id %}" class="btn btn-style-2">SUBMIT PROJECT</a>
+                  </p>
+                  {% endif %}
+                    
+                  {% endif %}
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal fade" id="issueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send issue report</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <textarea name="admin-issue" cols="30" rows="10" class="form-control"></textarea>
+              
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-style-2">send</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+    

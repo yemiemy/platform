@@ -1,0 +1,402 @@
+
+body {
+  overflow-x: hidden;
+  font-family: "Raleway", sans-serif, Arial, Helvetica, sans-serif;
+  background: #F6F6F6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+
+}
+
+a {
+  text-decoration: none !important;
+}
+
+td {
+  font-size: 13px;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+ 
+}
+
+.bg-custom-1 {
+  background: #E6E6E6;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0;
+  border-bottom: 0.4px solid #164782;
+}
+
+.header-image {
+  height: 80px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.nav-side {
+ display: flex;
+ justify-content: space-between;
+}
+
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom {
+  height: 60px;
+  border: none;
+  background: white !important;
+}
+
+.form-control:focus{
+  border-color: none;
+  box-shadow: none;
+}
+
+.searchbox {
+  margin-top: 5px;
+  width: %;
+}
+
+.search-place {
+  width: 330px;
+}
+
+.page-title {
+
+}
+#myClassicTab {
+  flex-direction: row !important;
+  
+}
+
+#myClassicTab li a {
+  color: black;
+  padding-top: 2rem;
+}
+
+.classic-tabs {
+  position: relative
+}
+
+#awesome-tab-classic {
+  position: absolute;
+  right: 0;
+  background: #164782;
+  color: white !important;
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 20px 20px;
+  padding-top: 5px !important;
+
+}
+
+.active-tab {
+  border-bottom: 4px solid #164782;
+}
+
+.projects-container {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.flex-all {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-card {
+  width: 300px !important;
+  min-width: 300px;
+  margin: 12px;
+  min-height: 270px;
+}
+
+.field {
+  width: 70%;
+}
+
+.style-button-1 {
+  text-decoration: none !important;
+  border: 2px solid #164782;
+  padding: 12px 20px;
+  background: #164782;
+  border-radius: 70px;
+  color: white;
+  font-weight: ;
+  width: 160px;
+  height: 40px;
+  margin-top: 20px;
+  
+}
+
+.main-content {
+  border: none;
+}
+
+
+.dash-page-head {
+  display: flex;
+  
+}
+
+.dash-btn {
+  
+}
+
+.text-sm {
+  font-size: 12px;
+}
+
+.team-list-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.btn {
+  text-transform: none !important;
+}
+
+.view-btn {
+  position: absolute;
+  right: 0;
+  padding: 4px;
+}
+
+.underlined {
+  border-bottom: 1px solid grey;
+}
+
+.status-bar {
+  margin-bottom: 10px;
+}
+
+.dash-team-span {
+  padding: 20px 20px;
+  border-bottom: 4px solid #164782;
+  margin: 0;
+  max-width: 30%;
+  font-weight: bold;
+}
+
+.sidebar-logout {
+  margin-top: 60%;
+  text-align: center;
+}
+
+.task-label {
+  margin-top: 10px;
+  border: none !important;
+  color: #164782 !important;
+}
+
+.list-group-item {
+  border-bottom: 1px solid gray !important ;
+}
+
+.projects-list {
+  margin-top: 5px;
+}
+
+.base-color{
+  color: #164782 !important;
+}
+
+.project-con {
+}
+
+.project-wrap {
+  min-height: 50px;
+  border-left: 3px solid #164782;
+}
+
+.p-body {
+  margin-top: 9px;
+}
+
+.extra-small {
+  font-size: 12px;
+}
+
+.issue-list {
+  margin-top: 7px;
+}
+
+.issue-1 {
+  padding: 0.5rem 1rem;
+  padding-bottom: 0.5px solid rgb(177, 174, 174) !important;
+}
+
+
+.style-button-1:hover {
+  border: 2px solid #164782;
+  background: #f8f9fa;
+}
+
+input[type="date"] {
+  width: inherit;
+}
+
+.btn-style-2 {
+  color: white;
+  background: none;
+  border: 2px solid #164782;
+  width: 160px;
+  color: #164782;
+  border-radius: 70px;
+}
+
+a.btn-style-2 {
+  border: 1.5px solid #164782;
+  padding: 5px 5px;
+  text-decoration: none !important;
+  font-size: 12px;
+  border-radius: 20px;
+}
+
+.task-body {
+  position: relative;
+}
+
+.task-btns {
+  position: absolute; 
+  bottom: 12px;
+}
+
+.btn-style-1 {
+  color:  #164782;
+  background: white;
+  border: 2px solid #164782;
+  width: 160px;
+  color: #164782;
+  border-radius: 70px;
+  font-weight: bold;
+}
+
+
+.btn-style-1:hover, .btn-style-2:focus, .btn-style-2:active {
+  color: white;
+  background: #164782;
+  border: 2px solid #164782;
+
+}
+
+.btn-style-2:hover, .btn-style-2:focus, .btn-style-2:active {
+  color: white;
+  background: #164782;
+}
+
+.submit-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8%;
+}
+
+
+.duration-section {
+  display: flex;
+  margin: 30px auto;
+}
+
+tr {
+width: 100%;
+display: inline-table;
+table-layout: fixed;
+}
+
+table{
+ height:300px;             
+ display: -moz-groupbox;
+ 
+}
+tbody{
+  overflow-y: scroll;      
+  height: 200px;            //  <-- Select the height of the body
+  width: 100%;
+  position: absolute;
+}
+
+.list-group-item-action {
+  color: #164782 !important;
+}
+
+.create-team {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  margin-right: 5%;
+}
+
+.list-group-item {
+  border: none;
+}
+
+div#sidebar-wrapper{
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#page-content-wrapper{
+  margin-left: 240px;
+}
+
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+  .field {
+    width: 100%;
+  }
+
+  .projects-container {
+    justify-content: center;
+  }
+
+  #page-content-wrapper {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}

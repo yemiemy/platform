@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}| Update {{project}} {% endblock title %}
+{% block content %}
+    <div class="container container-fluid">
+        <h5 class="mt-4 page-title">UPDATE PROJECT</h5>
+        <div class="card main-content">
+        <div class="card-body">
+        <form action="{% url 'update_project' project.id%}" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+            <h6 class="font-weight-bold">Project title</h6>
+            <input type="text" class="form-control field" name="title" value="{{project.title}}">
+            <br>
+            <h6 class="font-weight-bold">Project Description</h6>
+            <textarea name="description" id="" cols="30" rows="8" class="form-control field">{{project.description}}</textarea>
+            <br>
+            <h6 class="font-weight-bold">Project Point</h6>
+            <input type="number" value="{{project.point}}" class="form-control field" name="point">
+            <br>
+            <h6 class="font-weight-bold">Project Team</h6>
+            <select name="team" class="form-control field">
+                                <option disabled="disabled">Institution</option>             
+                                {% for team in teams  %}
+                                  <option 
+                                  
+                                  {% if project.team == team %}
+                                      selected='true'
+                                  {% endif %}
+                                      
+                                  value="{{team.id}}">{{team}}</option>
+                                {% endfor %}
+                              </select>
+            <br>
+            <h6 class="font-weight-bold">Add attachment</h6>
+            <input value="{{project.attachment}}" type="file" name="attachment">
+            <br><br>
+            <h6 class="font-weight-bold">Duration</h6>
+            <div class="duration-section">
+                  <span>Start date and time: <input value="{{project.startdate}}" required type="datetime-local" name="startdate" class="form-control"></span>
+                  <span>End date and time: <input required value="{{project.deadline}}" type="datetime-local" name="deadline" class="form-control"></span>
+            </div>
+            <div class="submit-section">
+                <input type="submit" class="btn-style-2" value="UPDATE">
+            </div>
+          </form>
+        </div>
+        </div>
+        </div>
+{% endblock content %}
+    

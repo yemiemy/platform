@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}| {{team}}{% endblock title %}
+{% block content %}
+    <div class="main-content">
+      <div class="container container-fluid"> 
+        <h5 class="mt-4 page-title">TEAM NAME: {{team}}</h5>
+        <div class="card main-content">
+          <div class="card-body">
+          <form action="">
+            <div class="completed-tasks task-label">
+              <div class="card shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Completed Tasks</div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{completed_counter}}</div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div class="progress-bar" role="progressbar" style="width: {{completed_percent}}%" aria-valuenow="{{completed_percent}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+          </div>
+          <div class="completed-tasks task-label">
+              <div class="card shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Ongoing Tasks</div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ongoing_counter}}</div>
+                          </div>
+                          <div class="col">
+                            <div class="progress progress-sm mr-2">
+                              <div class="progress-bar" role="progressbar" style="width: {{ongoing_percent}}%" aria-valuenow="{{ongoing_percent}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+          </div>
+          <br>
+              <h6 class="font-weight-bold">Position On Leaderboard: {{team.position}}</h6>
+
+              <br>
+
+              <h5 class="font-weight-bold">TEAM MEMBERS</h5>
+              <table class="table">
+                <thead class="thead-white">
+                  <tr>
+                    <th scope="col" class="font-weight-bold">Employee name</th>
+                    <th scope="col" class="font-weight-bold">Job position</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for member in team.members.all %}
+                        <tr>
+                        <td>{{member.first_name}} {{member.last_name}}</td>
+                        <td>{{member.userprofile.position}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+              </table>
+              
+            </form>
+          </div>
+          </div>
+      </div>
+      </div>
+{% endblock content %}
+    

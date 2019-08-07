@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}| {{project}}{% endblock title %}
+{% block content %}
+    <div class="main-content mt-3">
+          <div class="container container-fluid"> 
+            <div class="card">
+              <h4 class="card-header">{{project}}</h4>
+              <div class="card-body">
+                <h6 class="font-weight-bold">SOLUTION DESCRIPTION:</h6>
+                  <p class="">
+                      {{project.solution.details}}                                           
+                  </p>
+                  
+                  <br>
+
+                  <h6 class="font-weight-bold">ATTACHMENT: </h6>
+                  
+                  {% if project.solution.attachment %}
+                      <a href="{{project.solution.attachment.url}}">{{project.solution.attachment}}</a>
+                    {% else %}
+                    <p>NO ATTACHMENT AVAILABLE</p>
+                  {% endif %}
+
+                  
+
+                  <div class="mt-5 submit-section">
+                <input type="submit" class="btn btn-style-2" data-toggle="modal" data-target="#issueModal" value="send issue">
+                <form action="{% url 'confirm_project' project.id %}">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-style-2 ml-4" value="approve">
+                </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal fade" id="issueModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send issue report</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{% url 'create_feedback' project.team.id %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="team" value="{{project.team.id}}">
+              <input name="title" type="text" class="form-control" placeholder="Issue title"><br>
+              <textarea name="message" cols="30" rows="10" class="form-control" placeholder="issue description"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-style-2">send</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}
+    

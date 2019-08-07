@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}| Create Team{% endblock title %}
+{% block content %}
+      <div class="container container-fluid">
+        {% include 'partials/alerts.html' %}
+        <h2 class="mt-4 page-title">CREATE NEW TEAM</h2>
+        <form action="{% url 'create_team' %}" method="POST">
+          {% csrf_token %}
+            <h5>Team Name</h5>
+            <input required type="text" class="form-control field" name="name">
+            <br>
+            <h5>Select members of team</h5>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Members</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Member</th>
+                    <th scope="col">Team Lead</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for user in users  %}
+                    <tr>
+                    <td>{{user.first_name}} {{user.last_name}}</td>
+                    <td>{{user.userprofile.position}}</td>
+                    <td><input name="members" type="checkbox" class="form-control text-center" value="{{user.username}}"></td>
+                    <td><input type="radio" name="manager" class="form-control text-center" value="{{user.username}}"></td>
+                  </tr>
+                  {% endfor %}                    
+                </tbody>
+              </table>
+            <div class="submit-section">
+                <input type="submit" class="btn btn-style-2" value="CREATE TEAM">
+            </div>
+          </form>
+        </div>
+{% endblock content %}
+  
